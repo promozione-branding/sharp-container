@@ -1,0 +1,13 @@
+Place this file at https://sharpcontainermanufacturer.com/robots.txt
+
+# Site: https://sharpcontainermanufacturer.com
+
+User-agent: *
+Allow: /
+
+Sitemap: https://sharpcontainermanufacturer.com/sitemap.xml
+Host: https://sharpcontainermanufacturer.com
+
+
+
+

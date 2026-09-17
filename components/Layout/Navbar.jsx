@@ -62,7 +62,7 @@ const Navbar = () => {
               <Image
                 width={1000}
                 height={1000}
-                alt="logo"
+                alt="Sangam Plastic Industries"
                 src={"/image/nav/logo.webp"}
                 className="h-20 w-auto"
               />

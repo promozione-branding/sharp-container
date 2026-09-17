@@ -74,7 +74,7 @@ const About = () => {
         <div className="md:w-1/2">
           <Image
             src="https://i.pinimg.com/736x/5d/6e/36/5d6e36039777312c6ad3482fe81a1fe3.jpg"
-            alt="Our Vision"
+            alt="Sharp Container"
             width={1000}
             height={1000}
             className="rounded-xl w-full h-auto object-cover"

@@ -39,6 +39,7 @@ const Home = () => {
       image: "/image/home/banner3.webp",
       mobileImage: "/mobile2.webp",
       title: "Safe Sharps Disposal Starts Here",
+      alt:"Sharp Container Manufacturer",
       subtitle: "High-quality sharp containers designed for healthcare safety.",
       ctaPrimary: { href: "/contact?bulk=true", label: "Bulk Pricing" },
       ctaSecondary: { href: "/contact", label: "Contact Sales" },
@@ -47,6 +48,7 @@ const Home = () => {
       image: "/image/home/banner2.webp",
       mobileImage: "/mobile1.webp",
       title: "Sharp Container Manufacturer",
+      alt:"Sharp Container Manufacturer",
       subtitle:
         "Hygienic, puncture-resistant containers for safe sharps disposal.",
       ctaPrimary: { href: "/product", label: "See Solutions" },
@@ -56,6 +58,7 @@ const Home = () => {
     {
       image: "/image/home/banner1.webp",
       mobileImage: "/mob3.webp",
+      alt:"Sharp Container Manufacturer",
       title: "",
       subtitle: "",
       ctaPrimary: { href: "/product", label: "Our Products" },
@@ -170,7 +173,7 @@ const Home = () => {
               src={
                 isMobile ? slides[current].mobileImage : slides[current].image
               }
-              alt={slides[current].title}
+              alt={slides[current].alt}
               fill
               priority
               className="max-w-full h-auto object-cover"
@@ -607,7 +610,7 @@ const Home = () => {
             }
             width={1000}
             height={1000}
-            alt="biohazard image"
+            alt=" Sharp Container Manufacturer"
             className="rounded-lg"
           />
         </div>
@@ -945,7 +948,7 @@ const Home = () => {
             <Image
               width={500}
               height={500}
-              alt="contact"
+              alt="Sharp Container Manufacturer"
               src={"/image/sharp-container/IMG_9304-Photoroom.webp"}
               className=""
             />

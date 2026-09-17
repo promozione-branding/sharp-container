@@ -159,7 +159,7 @@ const Location = () => {
           >
             <Image
               src={"/image/sharp-container/3.5 Ltr.webp"}
-              alt="loading"
+              alt="Sharp Container"
               width={500}
               height={200}
               className="object-contain"
@@ -376,7 +376,7 @@ const Location = () => {
           <div className="w-full">
             <img
               src="/image/sharp-container/IMG_9305 (1)-Photoroom.webp"
-              alt="Key Features"
+              alt="Sharp Container Manufacturer"
               className="w-full h-[28rem] object-cover transition-transform duration-700 group-hover:scale-105"
               style={{ objectPosition: "50% 70%" }}
             />
@@ -680,7 +680,7 @@ const Location = () => {
           <div className="w-full">
             <img
               src="/image/sharp-container/IMG_9304-Photoroom.webp"
-              alt="Premium Dates Supplier in Delhi NCR"
+              alt={"Sharp Container Manufacturer in " +city}
               className="w-full h-102 object-cover rounded-2xl shadow-xl"
             />
           </div>

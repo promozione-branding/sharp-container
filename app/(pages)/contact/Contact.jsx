@@ -345,7 +345,7 @@ const Contact = () => {
                 <Image
                   src="/image/sharp-container/IMG_9304-Photoroom.webp"
                   fill
-                  alt="Contact us"
+                  alt=" Sharp Container"
                   className="object-contain md:object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>

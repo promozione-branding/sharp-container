@@ -1,39 +1,161 @@
 import Location from "./Location";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
+
+const cities = [
+  "Delhi",
+  "Mumbai",
+  "Kolkata",
+  "Chennai",
+  "Bangalore",
+  "Hyderabad",
+  "Pune",
+  "Ahmedabad",
+  "Jaipur",
+  "Lucknow",
+  "Surat",
+  "Kanpur",
+  "Nagpur",
+  "Indore",
+  "Thane",
+  "Bhopal",
+  "Visakhapatnam",
+  "Pimpri-Chinchwad",
+  "Patna",
+  "Vadodara",
+  "Ghaziabad",
+  "Ludhiana",
+  "Agra",
+  "Nashik",
+  "Faridabad",
+  "Meerut",
+  "Rajkot",
+  "Kalyan-Dombivli",
+  "Vasai-Virar",
+  "Varanasi",
+  "Srinagar",
+  "Aurangabad",
+  "Dhanbad",
+  "Amritsar",
+  "Navi Mumbai",
+  "Allahabad (Prayagraj)",
+  "Howrah",
+  "Ranchi",
+  "Gwalior",
+  "Jabalpur",
+  "Coimbatore",
+  "Vijayawada",
+  "Jodhpur",
+  "Madurai",
+  "Raipur",
+  "Kota",
+  "Guwahati",
+  "Chandigarh",
+  "Solapur",
+  "Hubli-Dharwad",
+  "Mysore",
+  "Bareilly",
+  "Moradabad",
+  "Gurgaon",
+  "Aligarh",
+  "Jalandhar",
+  "Tiruchirappalli",
+  "Bhubaneswar",
+  "Salem",
+  "Mira-Bhayandar",
+  "Thiruvananthapuram",
+  "Bhiwandi",
+  "Saharanpur",
+  "Gorakhpur",
+  "Bikaner",
+  "Amravati",
+  "Noida",
+  "Jamshedpur",
+  "Bhilai",
+  "Cuttack",
+  "Firozabad",
+  "Kochi",
+  "Bhavnagar",
+  "Dehradun",
+  "Durgapur",
+  "Asansol",
+  "Nanded",
+  "Kolhapur",
+  "Ajmer",
+  "Akola",
+  "Gulbarga",
+  "Jamnagar",
+  "Ujjain",
+  "Latur",
+  "Dhule",
+  "Panipat",
+  "Ambala",
+  "Tirunelveli",
+  "Alwar",
+  "Jagraon",
+  "Siliguri",
+  "Muzaffarpur",
+  "Guntur",
+  "Warangal",
+  "Jhansi",
+  "Satara",
+  "Karnal",
+  "Shimla",
+  "Anand",
+  "Rewari",
+];
 
 export async function generateMetadata({ params }) {
-    const { location } = await params;
+  const { location } = await params;
 
-    const rawCity = location.split("in-").pop();
+  // Get city slug
+  const rawCity = location.split("-in-")[1];
 
-    const city = rawCity
+  // Convert slug to city name
+  const city = rawCity
+    ? rawCity
         .split("-")
-        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-        .join(" ");
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ")
+    : "";
 
-    return {
-        title: `Sharp Container Manufacturer in ${city} | Biomedical Waste Containers Supplier`,
-        description: `Sangam Plastic Industries is a trusted Sharp Container Manufacturer in ${city} offering high-quality, puncture-resistant biomedical waste disposal containers for hospitals, laboratories, clinics.`,
-    };
+  return {
+    title: `Sharp Container Manufacturer in ${city} | Biomedical Waste Containers Supplier`,
+    description: `Sangam Plastic Industries is a trusted Sharp Container Manufacturer in ${city} offering high-quality, puncture-resistant biomedical waste disposal containers for hospitals, laboratories, clinics.`,
+  };
 }
 
 const Page = async ({ params }) => {
-    const { location } = await params;
+  const { location } = await params;
 
-    // 🔥 Must contain "-in-"
-    if (!location.includes("in-")) {
-        notFound();
-    }
+  // URL must contain "-in-"
+  if (!location || !location.includes("-in-")) {
+    redirect("/");
+  }
 
-    // 🔥 Extract city part after "in-"
-    const city = location.split("in-")[1];
+  // Get city slug
+  const citySlug = location.split("-in-")[1];
 
-    // 🔥 If city is empty or invalid → redirect to Home
-    if (!city || city.trim().length === 0) {
-        notFound();
-    }
+  if (!citySlug) {
+    redirect("/");
+  }
 
-    return <Location city={location} />;
+  // Convert URL slug to city name
+  const cityName = citySlug
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
+  // Match city with cities array
+  const matchedCity = cities.find(
+    (city) => city.toLowerCase() === cityName.toLowerCase()
+  );
+
+  // City doesn't exist → Home
+  if (!matchedCity) {
+    redirect("/");
+  }
+
+  return <Location city={matchedCity} />;
 };
 
 export default Page;

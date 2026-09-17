@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 const Footer = () => {
   const [imageShow, setImageShow] = useState(false);
   const currentYear = new Date().getFullYear();
@@ -80,10 +81,7 @@ const Footer = () => {
           >
             <h3 className="text-3xl md:text-2xl font-teko font-semibold">About Us</h3>
             <p className="text-gray-100 text-lg">
-              Established in 1988, Sangam Plastic Industries Private Limited has
-              been a leading Garbage Bag Manufacturer, specializing in the
-              production of high-quality cleaning and housekeeping equipment for
-              commercial, industrial, and institutional use.
+             Established in 1988, Sangam Plastic Industries Private Limited has been a leading <Link className="font-bold" href="https://sharpcontainermanufacturer.com/sharp-container"> Sharp Container Manufacturer</Link>, specializing in the production of high-quality cleaning and housekeeping equipment for commercial, industrial, and institutional use.
             </p>
           </motion.div>
 
@@ -215,9 +213,9 @@ const Footer = () => {
             className="text-center md:text-right text-sm text-gray-200 flex gap-2"
           >
             <p>
-              Website Designed By Promozione Branding Pvt. Ltd. {" "}
+              Website Designed By Inquiry Bazaar Pvt. Ltd. {" "}
               <a
-                href="https://promozionebranding.com"
+                href="https://inquirybazaar.com/"
                 className="hover:text-blue-200 transition font-bold"
                 target="_blank"
               >
