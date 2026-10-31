@@ -1,6 +1,7 @@
 "use client";
 
 import PopForm from "@/components/PopForm";
+import { handleCallClick, handleWhatsappClick } from "@/lib/track";
 import { category } from "@/productData";
 import React, { useState } from "react";
 
@@ -96,7 +97,7 @@ const NeedleCutterDetail = ({ productId }) => {
 
             {/* CTA Buttons */}
             <div className="grid grid-cols-1 sm:flex sm:flex-wrap gap-3 sm:gap-4">
-              <a
+              <a onClick={() => handleCallClick({ source: "Website product page", obj: productName })}
                 href="tel:8810422935"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -105,7 +106,7 @@ const NeedleCutterDetail = ({ productId }) => {
                 Call Now
               </a>
 
-              <a
+              <a onClick={() => handleWhatsappClick({ source: "Website product page", obj: productName })}
                 href="https://wa.me/+918810422935"
                 target="_blank"
                 rel="noopener noreferrer"

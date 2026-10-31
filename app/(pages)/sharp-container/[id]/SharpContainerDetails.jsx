@@ -1,6 +1,7 @@
 "use client";
 
 import PopForm from "@/components/PopForm";
+import { handleCallClick, handleWhatsappClick } from "@/lib/track";
 import { category } from "@/productData";
 import React, { useState } from "react";
 
@@ -96,7 +97,7 @@ const SharpContainerDetails = ({ productId }) => {
 
             {/* CTA Buttons */}
             <div className="grid grid-cols-1 sm:flex sm:flex-wrap gap-3 sm:gap-4">
-              <a
+              <a onClick={() => handleCallClick({ source: "Website product page", obj: productName })}
                 href="tel:8810422935"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -105,8 +106,8 @@ const SharpContainerDetails = ({ productId }) => {
                 Call Now
               </a>
 
-              <a
-             href="https://wa.me/+918810422935"
+              <a onClick={() => handleWhatsappClick({ source: "Website product page", obj: productName })}
+                href="https://wa.me/+918810422935"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto text-center bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition"
